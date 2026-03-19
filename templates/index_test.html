@@ -58,28 +58,36 @@
         <!-- Siderbar -->
 
         <div class="sidebar">
-            <nav class="navbar bg-light">
-                <div class="container-fluid">
-                    <form class="d-flex" method="GET">
-                        <input class="form-control me-2" type="search" name="search" placeholder="">
-                        <button class="btn btn-outline-success">
-                            Recherche
-                        </button>
-                    </form>
-                </div>
-            </nav>
-            <h5 class="mb-1">Historique</h5>
-            <ul class="chat-history mt-3">
-                {% for id, chat in chats.items() %}
-                <li onclick="window.location='/chat/{{id}}'" class="{% if id == current_chat %}active{% endif %}">
-                    {{ chat.title }}
-                </li>
-                {% endfor %}
-            </ul>
-            <a href="/new_chat" class="new-chat">
-                Nouveau chat
-            </a>
-        </div>
+
+    <!-- TOP -->
+    <div class="sidebar-top">
+        <form class="d-flex" method="GET">
+            <input class="form-control me-2" type="search" name="search" placeholder="">
+            <button class="btn btn-outline-success">Recherche</button>
+        </form>
+        <h5>Historique</h5>
+    </div>
+
+    <!-- SCROLL -->
+    <div class="chat-scroll">
+        <ul class="chat-history">
+            {% for id, chat in chats.items() %}
+            <li onclick="window.location='/chat/{{id}}'"
+                class="{% if id == current_chat %}active{% endif %}">
+                {{ chat.title }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- BOTÓN FIJO -->
+    <div class="sidebar-bottom">
+        <a href="/new_chat" class="new-chat">
+            Nouveau chat
+        </a>
+    </div>
+
+</div>
 
         <!-- Chat -->
 
@@ -98,6 +106,7 @@
                         </p>
                         {% endfor %}
                     </div>
+
                 </div>
 
                 <!-- Form FLASK -->

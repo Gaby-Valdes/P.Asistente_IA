@@ -24,68 +24,106 @@ body{
 }
 
 /* Sidebar */
-.sidebar{
-    width:260px;
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 80px;
+    height: calc(100vh - 70px);
+    width: 250px;
+
+    display: flex;
+    flex-direction: column;
+
     background: linear-gradient(180deg, #c4f6ff, #a4d0ff);
-    color: black;
-    padding:5px;
-    display:flex;
-    flex-direction:column;
+    
 }
+
+/* TOP */
+.sidebar-top {
+    padding: 10px;
+    flex-shrink: 0;
+}
+
 .sidebar nav {
     margin-bottom: 15px;
 }
 
 /* Historique */
-.sidebar h5{
-    width: 10px;
-    color:black;
-    font-weight:600;
+.sidebar h5 {
+    color: black;
+    font-weight: 600;
+    padding: 5px;
 }
 
-/* List chat */
-.chat-history li{
-    padding:10px 10px;
-    border-radius:10px;
-    cursor:pointer;
-    color:black;
+/* Scroll */
+.chat-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: 5px;
+}
+
+/* Liste */
+.chat-history {
     list-style: none;
-    margin-left: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* Items */
+.chat-history li {
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: black;
+}
+
+/* Scroll style*/
+.chat-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
 }
 
 /* Hover */
-.chat-history li:hover{
+.chat-history li:hover {
     background: rgba(255, 255, 255, 0.449);
-    transform:translateX(4px);
+    transform: translateX(4px);
 }
 
 /* Chat active */
-.chat-history li.active{
+.chat-history li.active {
     background: white;
-    color:#1e3a8a;
-    font-weight:600;
+    color: #1e3a8a;
+    font-weight: 600;
     padding-left: 15px;
 }
 
-/* Noeveau chat */
-
-.new-chat{
-    text-decoration:none;
-    display:block;
-    margin-top:15px;
-    padding:10px;
-    border-radius:10px;
-    text-align:center;
-    background:#2563eb;
-    color:white;
-    font-weight:500;
-    transition:.2s;
+/* Button (new chat) */
+.sidebar-bottom {
+    padding: 10px;
+    margin-bottom: 15px;
 }
 
-.new-chat:hover{
-    background:#1d4ed8;
+/* Nouveau chat */
+.new-chat {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    background: #2563eb;
+    color: white;
+    font-weight: 500;
+    transition: .2s;
 }
 
+.new-chat:hover {
+    background: #1d4ed8;
+}
 /* Chat */
 
 .chat-section{
@@ -94,6 +132,8 @@ body{
     justify-content:center;
     align-items:center;
     padding:20px;
+    margin-left: 250px;
+    margin-top: 70px;
 }
 
 /* Chat box */
