@@ -1,0 +1,161 @@
+body{
+    margin:0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background:#f4f6fb;
+}
+
+/* Layout  */
+
+.main-wrapper{
+    display:flex;
+    height:calc(100vh - 80px);
+}
+
+/* Titre */
+
+.top-title{
+    position:fixed;
+    top:10px;
+    left:20px;
+    font-size:30px;
+    font-weight:700;
+    color:#1f2937;
+    z-index:999;
+}
+
+/* Sidebar */
+.sidebar{
+    width:260px;
+    background: linear-gradient(180deg, #c4f6ff, #a4d0ff);
+    color: black;
+    padding:5px;
+    display:flex;
+    flex-direction:column;
+}
+.sidebar nav {
+    margin-bottom: 15px;
+}
+
+/* Historique */
+.sidebar h5{
+    width: 10px;
+    color:black;
+    font-weight:600;
+}
+
+/* List chat */
+.chat-history li{
+    padding:10px 10px;
+    border-radius:10px;
+    cursor:pointer;
+    color:black;
+    list-style: none;
+    margin-left: 0;
+}
+
+/* Hover */
+.chat-history li:hover{
+    background: rgba(255, 255, 255, 0.449);
+    transform:translateX(4px);
+}
+
+/* Chat active */
+.chat-history li.active{
+    background: white;
+    color:#1e3a8a;
+    font-weight:600;
+    padding-left: 15px;
+}
+
+/* Noeveau chat */
+
+.new-chat{
+    text-decoration:none;
+    display:block;
+    margin-top:15px;
+    padding:10px;
+    border-radius:10px;
+    text-align:center;
+    background:#2563eb;
+    color:white;
+    font-weight:500;
+    transition:.2s;
+}
+
+.new-chat:hover{
+    background:#1d4ed8;
+}
+
+/* Chat */
+
+.chat-section{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+/* Chat box */
+
+.chat-box{
+    width:60%;
+    max-width:750px;
+}
+
+/* Card*/
+
+.card{
+    border-radius:12px;
+    border:1px solid #e5e7eb;
+}
+
+/* Messages */
+
+.messages{
+    max-height:350px;
+    overflow-y:auto;
+    margin-bottom:15px;
+    padding:10px;
+}
+
+/* Input */
+
+.input-group input{
+    height:45px;
+}
+
+/* User */
+
+.user-avatar{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    background:rgb(61, 197, 243);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    margin-right:8px;
+}
+
+/* Switcher */
+
+.theme-switcher{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    z-index:1000;
+}
+
+/* Scroll */
+
+.messages::-webkit-scrollbar{
+    width:6px;
+}
+
+.messages::-webkit-scrollbar-thumb{
+    background:#cbd5e1;
+    border-radius:6px;
+}

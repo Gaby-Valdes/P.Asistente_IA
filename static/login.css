@@ -1,0 +1,18 @@
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#5f9cff,#6be0ff);
+}
+
+.login-card{
+width:350px;
+border-radius:15px;
+}
+
+.btn-primary {
+    background-color: #2563eb; 
+    border: none;
+    color: white
+}

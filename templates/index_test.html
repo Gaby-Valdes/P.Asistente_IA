@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Assistance AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_test.css') }}">
+
+
+</head>
+
+<body>
+
+    <!-- Thème -->
+    <div class="theme-switcher">
+        <label for="theme">Thème:</label>
+        <select id="theme">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="auto">Auto</option>
+        </select>
+    </div>
+
+    <header class="mb-auto py-3 sticky-top bg-body">
+
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <div class="top-title">
+                    Assistance AI
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle d-flex align-items-center" type="button"
+                    data-bs-toggle="dropdown">
+                    <div class="user-avatar">
+                        {{ user[0] }}
+                    </div>
+                    {{ user }} ({{ level }})
+                </button>
+
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <a class="dropdown-item" href="/login">Déconnexion</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="main-wrapper">
+
+        <!-- Siderbar -->
+
+        <div class="sidebar">
+            <nav class="navbar bg-light">
+                <div class="container-fluid">
+                    <form class="d-flex" method="GET">
+                        <input class="form-control me-2" type="search" name="search" placeholder="">
+                        <button class="btn btn-outline-success">
+                            Recherche
+                        </button>
+                    </form>
+                </div>
+            </nav>
+            <h5 class="mb-1">Historique</h5>
+            <ul class="chat-history mt-3">
+                {% for id, chat in chats.items() %}
+                <li onclick="window.location='/chat/{{id}}'" class="{% if id == current_chat %}active{% endif %}">
+                    {{ chat.title }}
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/new_chat" class="new-chat">
+                Nouveau chat
+            </a>
+        </div>
+
+        <!-- Chat -->
+
+        <div class="chat-section">
+            <div class="chat-box">
+                <div class="text-center mb-4">
+
+                    <h3>Comment puis‑je vous aider ?</h3>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-body messages">
+                        {% for message in messages %}
+                        <p class="{{ message.role }}">
+                            <strong>{{ message.role }}:</strong>
+                            {{ message.content }}
+                        </p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Form FLASK -->
+
+                <form method="POST">
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <label for="file-upload" style="cursor:pointer;margin:0;">
+                                <i class="fa-solid fa-paperclip"></i>
+                            </label>
+                        </span>
+                        <input id="file-upload" type="file" hidden>
+                        <input name="message" type="text" class="form-control" placeholder="Écrivez votre message...">
+                        <button class="btn btn-primary">
+                            Envoyer
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

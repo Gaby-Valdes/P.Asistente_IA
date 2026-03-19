@@ -1,0 +1,47 @@
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg,#4facfe,#00f2fe);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Box form */
+.form-container{
+    background:white;
+    padding:40px;
+    width:100%;
+    max-width:500px;
+    border-radius:15px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* Titre */
+h2{
+    text-align:center;
+    margin-bottom:25px;
+    font-weight:600;
+}
+
+/* Input */
+.form-control, .form-select{
+    border-radius:8px;
+    padding:12px;
+}
+
+/* Boton */
+button{
+    margin-top:10px;
+    border-radius:8px;
+    padding:12px;
+    font-size:16px;
+    font-weight:500;
+}
+
+/* Hover */
+button:hover{
+    transform:scale(1.02);
+    transition:0.2s;
+}
