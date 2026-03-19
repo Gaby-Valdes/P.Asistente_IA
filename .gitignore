@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Configs personales
+.config/
+*.json
+*.backup
+
+# Otros
+node_modules/
+.env
